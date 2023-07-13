@@ -5,7 +5,7 @@ void FADCBLOCK( Int_t nrun=1370, Int_t nevent=-1) {
     // --------------------------------------------------------------------------------
     
     TChain *t;
-    TFile *f = new TFile(Form("../nps_eel108_%i.root", nrun));
+    TFile *f = new TFile(Form("/data1/cdaq/eel108/output/ROOTfiles/nps_eel108_%i.root", nrun));
     t = new TChain("T");
     t->Add(f->GetName(),-1);
     t->SetBranchStatus("*",false);
@@ -42,7 +42,7 @@ void FADCBLOCK( Int_t nrun=1370, Int_t nevent=-1) {
         h_Amp[i] = new TH1F(Form("h_Amp_Channel_%d",i),"",100,0,100);
         h_Int[i] = new TH1F(Form("h_Int_Channel_%d",i),"",100,0,100);
         h_Time[i] = new TH1F(Form("h_Time_Channel_%d",i),"",120,0,480);
-        h_Ped[i] = new TH1F(Form("h_Ped_Channel_%d",i),"",100,0,100);
+        h_Ped[i] = new TH1F(Form("h_Ped_Channel_%d",i),"",100,50,150);
     }
 
     //Arrays, variables, ...
